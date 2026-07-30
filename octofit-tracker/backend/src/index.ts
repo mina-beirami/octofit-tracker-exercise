@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import './config/database';
 import healthRouter from './routes/health';
 import usersRouter from './routes/users';
+import activitiesRouter from './routes/activities';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.get('/api', (_req, res) => {
 
 app.use('/api/health', healthRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/activities', activitiesRouter);
 
 app.listen(port, () => {
   console.log(`OctoFit backend listening on port ${port}`);

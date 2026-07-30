@@ -3,7 +3,7 @@ import { User } from '../models/user';
 
 const router = Router();
 
-router.get('', async (_req, res) => {
+router.get('/', async (_req, res) => {
   try {
     const users = await User.find().select('-password');
     res.json(users);
@@ -12,7 +12,7 @@ router.get('', async (_req, res) => {
   }
 });
 
-router.post('', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const user = new User(req.body);
     const savedUser = await user.save();
